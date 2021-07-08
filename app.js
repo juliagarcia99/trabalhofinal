@@ -1,5 +1,4 @@
 const express = require('express');
-const authRoutes = require('./routes/auth-routes');
 const app = express();
 const passport = require("passport");
 const path = require('path');
@@ -33,6 +32,7 @@ app.get('/auth',(req,res)=>{
     `https://github.com/login/oauth/authorize?client_id=fe95143164037aafd4ce`
   )
 })
+
 app.get('/logged',({ query: {code}},res)=>{
   const body ={
     client_id: "fe95143164037aafd4ce",
@@ -66,17 +66,14 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.set('view engine', 'ejs');
 
-app.use('/auth', authRoutes);
 
 const port = 3000
+
+
 
 app.get('/', (req, res) => {
   res.render('home');
 })
-
-
-
-
 
 app.get('/chat',(req,res)=>{
   res.render('chat', {author: author});
