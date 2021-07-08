@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require("passport");
 
 //pg de login
 router.get('/login', (req, res)=>{
