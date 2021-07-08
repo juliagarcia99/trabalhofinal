@@ -7,8 +7,16 @@ const path = require('path');
 const server = require('http').createServer(app);
 const io =require('socket.io')(server);
 
-io.on('connection', socket=>{
+
+let messages = [];
+
+
+io.on('connection', socket => {
   console.log(`Socket conectado: ${socket.id}`);
+
+  socket.on('sendMessage', data =>{
+    messages.push(data);  
+  })
 })
 
 
@@ -32,16 +40,14 @@ app.use('/auth', authRoutes);
 
 const port = 3000
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   res.render('home');
 })
 
-app.get('/chat',(req,res)=>{
-  res.render('chat');
+app.get('/',(req,res)=>{
+  res.render('chat', {author: "LIPOSOOOO"});
 })
 
 
-app.listen(port, () => {
-  console.log('ta rodando');
-})
+server.listen(3000);
 
