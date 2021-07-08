@@ -7,9 +7,7 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://localhost:3000/auth/fb/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    console.log(profile);
   }
 ));
 

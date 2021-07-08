@@ -1,0 +1,31 @@
+body{
+	background-color: #F9F9F9;
+	font-family: sans-serif;
+}
+
+main{
+	max-width: 40%;
+	margin: 0 auto;
+	padding-top: 7%;
+	text-align: center;
+}
+
+#giticon{
+	max-width: 50px;
+	margin-bottom: 20px;
+}
+
+.git-btn{
+	background-color: #9B72AA;
+	padding: 15px;
+	border-radius: 10px;
+	transition: background-color .3s;
+}
+a{
+	text-decoration: none;
+	color: #F9F9F9;
+}
+.git-btn:hover{
+	background-color: #C6B4CE;
+	transition: background-color .5s;
+}
